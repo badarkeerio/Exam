@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ExamForge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif:wght@400;700&display=swap');
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f3f4f6;
+      }
+
+      /* Print styles */
+      @media print {
+        @page {
+          margin: 0;
+          size: A4;
+        }
+        
+        body, html, #root {
+          height: auto !important;
+          overflow: visible !important;
+          background: white !important;
+        }
+
+        /* Hide UI elements */
+        .no-print {
+          display: none !important;
+        }
+
+        /* Ensure containers expand to fit content */
+        .print-container {
+          box-shadow: none !important;
+          margin: 0 !important;
+          width: 100% !important;
+          max-width: none !important;
+          padding: 10mm !important; /* A4 padding */
+          page-break-after: always;
+        }
+
+        /* Last page shouldn't force a blank page after */
+        .print-container:last-child {
+          page-break-after: auto;
+        }
+
+        /* Override Tailwind layout classes that clip content */
+        .flex, .h-screen, .overflow-hidden {
+          display: block !important;
+          height: auto !important;
+          overflow: visible !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "docx": "https://aistudiocdn.com/docx@^9.5.1",
+    "file-saver": "https://aistudiocdn.com/file-saver@^2.0.5"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
